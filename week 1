@@ -1,0 +1,65 @@
+# TASK 1
+
+import numpy as np
+even_integers = np.arange(30, 71, 2)
+print(even_integers)
+
+# TASK 2
+
+import numpy as np
+random_numbers = np.random.standard_normal(15)
+print(random_numbers)
+import numpy as np
+vector_a = np.array([1, 2, 3])#  1st vector in 1D arrays
+vector_b = np.array([4, 5, 6]) # 2nd vectors in 1D arrays
+cross_product = np.cross(vector_a, vector_b) # solve the cross-product
+print("Cross-product:", cross_product)
+
+# TASK 3
+
+import numpy as np
+# 2x2 matrix
+matrix = np.array([[1, 9],[2, 4]])
+# determinant
+determinant = np.linalg.det(matrix)
+# result
+print("Determinant:", determinant)
+
+# TASK 4
+
+import numpy as np
+# 3x3x3 array with random values
+random = np.random.rand(3, 3, 3)
+# Print
+print("3x3x3 Array with Random Values:")
+print(random)
+
+# TASK 5
+
+import numpy as np
+# 5x5 array with random values
+random = np.random.rand(5, 5)
+# Find min and max 
+min = np.min(random)
+max = np.max(random)
+# Print minimum, and maximum values
+print("5x5 Array with Random Values:")
+print(random)
+print("Minimum Value:", min)
+print("Maximum Value:", max)
+
+# TASK 6
+
+import numpy as np
+# Create an array
+array = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+# Compute mean 
+mean = np.mean(array, axis=1)
+# Compute standard deviation 
+deviation = np.std(array, axis=1)
+# Compute variance
+variance = np.var(array, axis=1)
+# Print the results
+print("Mean along the second axis:", mean)
+print("Standard Deviation along the second axis:", deviation)
+print("Variance along the second axis:", variance)
