@@ -1,0 +1,96 @@
+# TASK 1
+print("Column names:")
+print(df.columns.to_list())
+print("\nDataFrame info:")
+print(df.info())
+
+
+# TASK 2
+print(df.describe(include='all'))
+
+
+# TASK 3
+print(df.isnull().sum())
+
+
+# TASK 4
+fig = px.histogram(df, x="Impressions", nbins=50, title="Distribution of Impressions")
+fig.show()
+
+
+# TASL 5
+fig = px.line(df, x="index", y="Impressions", title="Impressions Over Time")
+fig.show()
+
+
+# TASK 6
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=df["index"], y=df["Likes"], mode='lines', name='Likes'))
+fig.add_trace(go.Scatter(x=df["index"], y=df["Saves"], mode='lines', name='Saves'))
+fig.add_trace(go.Scatter(x=df["index"], y=df["Follows"], mode='lines', name='Follows'))
+fig.update_layout(title="Metrics Over Time", xaxis_title="Index", yaxis_title="Count")
+fig.show()
+
+
+
+# TASK 7
+fig = go.Figure(go.Pie(labels=["Different Sources", "From Home", "From Hashtags", "From Explore", "From Other"], values=[33.6, 44.1, 19.2, 0.1, 0.1], name="Reach from Different Sources"))
+fig.update_layout(title="Reach from Different Sources")
+fig.show()
+
+
+
+# TASK 8
+fig = go.Figure(go.Pie(labels=["Engagement Sources", "From Home", "From Hashtags", "From Explore", "From Other"], values=[44.7, 50.6, 0.7, 0.1, 0.1], name="Engagement Sources"))
+fig.update_layout(title="Engagement Sources")
+fig.show()
+
+
+
+# TASK 9
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=df["index"], y=df["Likes"], mode='lines', name='Likes'))
+fig.add_trace(go.Scatter(x=df["index"], y=df["Saves"], mode='lines', name='Saves'))
+fig.add_trace(go.Scatter(x=df["index"], y=df["Shares"], mode='lines', name='Shares'))
+fig.update_layout(title="Likes, Saves, and Shares Over Time", xaxis_title="Index", yaxis_title="Count")
+fig.show()
+
+
+
+# TASK 10
+fig = go.Figure()
+fig.add_trace(go.Scatter(x=df["index"], y=df["Comments"], mode='lines', name='Comments'))
+fig.update_layout(title="Comments Over Time", xaxis_title="Index", yaxis_title="Count")
+fig.show()
+
+
+
+# TASK 9
+import pandas as pd
+import plotly.graph_objects as go
+# Load the dataset
+df = pd.read_csv("Instagram data.csv")
+# Create a figure
+fig = go.Figure()
+# Add traces
+fig.add_trace(go.Scatter(x=df["Profile Visits"], y=df["Follows"], mode='lines', name='Profile Visits vs. Follows'))
+# Update layout
+fig.update_layout(title="Profile Visits vs. Follows", xaxis_title="Profile Visits", yaxis_title="Follows")
+# Show the figure
+fig.show()
+
+
+  
+# TASK 10
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+# Load the dataset
+df = pd.read_csv("Instagram data.csv")
+# Join all hashtags into a single string
+hashtags = " ".join(df["Hashtags"])
+# Create a wordcloud
+wordcloud = WordCloud(width=800, height=500, background_color='white').generate(hashtags)
+# Display the wordcloud
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis("off")
+plt.show()
